@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Cores from '../../Styles/colors'
+import Cores from '../../styles/colors'
 
 export const HeaderBar = styled.header`
   display: flex;
@@ -17,6 +17,10 @@ export const HeaderBar = styled.header`
     text-decoration: none;
     color: ${Cores.branco};
     font-weight: bold;
+
+    &:hover {
+      color: ${Cores.cinzaClaro};
+    }
   }
 
   div {
@@ -35,7 +39,7 @@ export const LinkItem = styled.li`
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `
 

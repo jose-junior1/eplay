@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Cores from '../../Styles/colors'
+import Cores from '../../styles/colors'
 
 export const ButtonContainer = styled.button`
   border: 2px solid ${Cores.branco};
@@ -15,6 +15,8 @@ export const ButtonContainer = styled.button`
 
   &:hover {
     transform: scale(1.05);
+    border-color: ${Cores.azul};
+    color: ${Cores.azulBebe};
   }
 `
 
@@ -32,5 +34,7 @@ export const ButtonLink = styled(Link)`
 
   &:hover {
     transform: translateZ(0) scale(1.05);
+    border-color: ${Cores.azul};
+    color: ${Cores.azulBebe};
   }
 `
