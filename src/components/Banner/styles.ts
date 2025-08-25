@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
-import banner from '../../assets/images/banner-homem-aranha.png'
 import { TagContainer } from '../Tag/styles'
 
 export const Imagem = styled.div`
+  position: relative;
   display: block;
   height: 560px;
   width: 100%;
-  background-image: url(${banner});
   background-size: cover;
   background-repeat: no-repeat;
   font-weight: bold;
@@ -18,11 +17,22 @@ export const Imagem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    z-index: 1;
   }
 
   ${TagContainer} {
     position: absolute;
     top: 32px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: '';
   }
 `
 

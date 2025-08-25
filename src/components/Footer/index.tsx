@@ -2,8 +2,12 @@ import { Container, Title, Links, FooterSection, Link } from './styles'
 
 const currentYear = new Date().getFullYear()
 
-const Footer = () => (
-  <Container>
+type Props = {
+  background: 'black' | 'gray'
+}
+
+const Footer = ({ background }: Props) => (
+  <Container background={background}>
     <div className="container">
       <FooterSection>
         <Title>Categorias</Title>

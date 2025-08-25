@@ -12,16 +12,16 @@ export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
     background-color: ${(props) =>
       props.background === 'black' ? `${cores.cinza}` : `${cores.preto}`};
   }
+
+  p {
+    max-width: 640px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 22px;
+  }
 `
 
 export const Title = styled.h2`
   font-size: 18px;
-`
-
-export const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  width: 100%;
-  margin-top: 40px;
+  margin-bottom: 40px;
 `

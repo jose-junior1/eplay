@@ -1,8 +1,13 @@
 import styled from 'styled-components'
-import Cores from '../../styles/colors'
+import cores from '../../styles/colors'
 
-export const Container = styled.div`
-  background-color: ${Cores.cinza};
+type Props = {
+  background: 'black' | 'gray'
+}
+
+export const Container = styled.div<Props>`
+  background-color: ${(props) =>
+    props.background === 'gray' ? `${cores.cinza}` : `${cores.preto}`};
   padding: 32px 0;
   font-size: 14px;
 `
@@ -22,10 +27,10 @@ export const Links = styled.ul`
 `
 
 export const Link = styled.a`
-  color: ${Cores.cinzaClaro};
+  color: ${cores.cinzaClaro};
   text-decoration: none;
 
   &:hover {
-    color: ${Cores.branco};
+    color: ${cores.branco};
   }
 `

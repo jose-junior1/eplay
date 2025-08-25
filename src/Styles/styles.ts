@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import Cores from './colors'
+import cores from './colors'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -11,8 +11,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${Cores.preto};
-    color: ${Cores.branco};
+    background-color: ${cores.preto};
+    color: ${cores.branco};
     padding-top: 40px;
   }
 
@@ -20,5 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  .status-fetch {
+    text-align: center;
+    margin-bottom: 16px;
   }
 `

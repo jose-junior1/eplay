@@ -1,4 +1,4 @@
-const Cores = {
+const cores = {
   branco: '#eee',
   preto: '#111',
   cinza: '#333',
@@ -8,4 +8,4 @@ const Cores = {
   azulBebe: '#5bacfc'
 }
 
-export default Cores
+export default cores
