@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import cores from '../../styles/colors'
+import { HashLink } from 'react-router-hash-link'
 
 type Props = {
   background: 'black' | 'gray'
@@ -24,9 +25,10 @@ export const Links = styled.ul`
   display: flex;
   gap: 8px;
   margin-top: 16px;
+  flex-wrap: wrap;
 `
 
-export const Link = styled.a`
+export const LinkItem = styled(HashLink)`
   color: ${cores.cinzaClaro};
   text-decoration: none;
 

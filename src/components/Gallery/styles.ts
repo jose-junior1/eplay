@@ -5,6 +5,7 @@ export const GalleryList = styled.ul`
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 `
 
 export const Action = styled.div`
@@ -46,34 +47,6 @@ export const GalleryItem = styled.li`
   }
 `
 
-export const Modal = styled.div`
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-
-  &.visible {
-    display: flex;
-    opacity: 1;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.73);
-  }
-`
-
 export const Container = styled.div`
   max-width: 960px;
   width: 100%;
@@ -107,5 +80,34 @@ export const Container = styled.div`
     width: 100%;
     height: 480px;
     border: none;
+  }
+`
+
+export const Modal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+    transition: opacity 0.7s ease;
+    pointer-events: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
   }
 `

@@ -1,4 +1,4 @@
-import { Container, Title, Links, FooterSection, Link } from './styles'
+import { Container, Title, Links, FooterSection, LinkItem } from './styles'
 
 const currentYear = new Date().getFullYear()
 
@@ -13,25 +13,19 @@ const Footer = ({ background }: Props) => (
         <Title>Categorias</Title>
         <Links>
           <li>
-            <Link href="#">RPG</Link>
+            <LinkItem to="/categories#action">Ação</LinkItem>
           </li>
           <li>
-            <Link href="#">Ação</Link>
+            <LinkItem to="/categories#sports">Esportes</LinkItem>
           </li>
           <li>
-            <Link href="#">Aventura</Link>
+            <LinkItem to="/categories#fight">Luta</LinkItem>
           </li>
           <li>
-            <Link href="#">Esportes</Link>
+            <LinkItem to="/categories#rpg">RPG</LinkItem>
           </li>
           <li>
-            <Link href="#">Simulação</Link>
-          </li>
-          <li>
-            <Link href="#">Estratégia</Link>
-          </li>
-          <li>
-            <Link href="#">FPS</Link>
+            <LinkItem to="/categories#simulation">Simulação</LinkItem>
           </li>
         </Links>
       </FooterSection>
@@ -39,13 +33,10 @@ const Footer = ({ background }: Props) => (
         <Title>Acesso rápido</Title>
         <Links>
           <li>
-            <Link href="#">Novidades</Link>
+            <LinkItem to="/#on-sale">Promoções</LinkItem>
           </li>
           <li>
-            <Link href="#">Promoções</Link>
-          </li>
-          <li>
-            <Link href="#">Em breve</Link>
+            <LinkItem to="/#on-soon">Em breve</LinkItem>
           </li>
         </Links>
       </FooterSection>

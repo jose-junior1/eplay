@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -32,26 +32,30 @@ export type Game = {
 }
 
 const Home = () => {
-  const [promocoes, setPromocoes] = useState<Game[]>([])
-  const [emBreve, setEmBreve] = useState<Game[]>([])
+  const { data: onSale } = useGetOnSaleQuery()
+  const { data: onSoon } = useGetSoonQuery()
 
-  useEffect(() => {
-    fetch('https://fakeapi-cyan.vercel.app/api/eplay/promocoes')
-      .then((res) => res.json())
-      .then((res) => setPromocoes(res))
+  if (onSale && onSoon) {
+    return (
+      <>
+        <Banner />
+        <ProductsList
+          id="on-sale"
+          games={onSale}
+          title="Promoções"
+          background="gray"
+        />
+        <ProductsList
+          id="on-soon"
+          games={onSoon}
+          title="Em breve"
+          background="black"
+        />
+      </>
+    )
+  }
 
-    fetch('https://fakeapi-cyan.vercel.app/api/eplay/em-breve')
-      .then((res) => res.json())
-      .then((res) => setEmBreve(res))
-  }, [])
-
-  return (
-    <>
-      <Banner />
-      <ProductsList games={promocoes} title="Promoções" background="gray" />
-      <ProductsList games={emBreve} title="Em breve" background="black" />
-    </>
-  )
+  return <h4>Carregando...</h4>
 }
 
 export default Home

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import cores from '../../styles/colors'
+import { breakpoints } from '../../styles/styles'
 
 export const HeaderBar = styled.header`
   display: flex;
@@ -27,6 +28,10 @@ export const HeaderBar = styled.header`
     display: flex;
     align-items: center;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `
 
 export const Links = styled.ul`
@@ -43,8 +48,9 @@ export const LinkItem = styled.li`
   }
 `
 
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   display: flex;
   align-items: center;
   gap: 16px;
+  cursor: pointer;
 `

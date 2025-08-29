@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 import cores from '../../styles/colors'
+import { breakpoints } from '../../styles/styles'
 
 export const Banner = styled.div`
   position: relative;
   display: block;
   height: 480px;
   width: 100%;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 16px;
@@ -36,6 +37,10 @@ export const Banner = styled.div`
       align-items: center;
       gap: 8px;
     }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
   }
 `
 

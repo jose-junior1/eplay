@@ -17,7 +17,7 @@ export const Card = styled(Link)`
   }
 
   img {
-    width: 222px;
+    width: 100%;
     height: 250px;
     object-fit: cover;
   }
