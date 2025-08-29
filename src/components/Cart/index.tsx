@@ -37,11 +37,13 @@ const Cart = () => {
           {items.map((item) => (
             <S.Item key={item.id}>
               <img src={item.media.thumbnail} alt={item.name} />
-              <div>
+              <div className="container-items">
                 <h3>{item.name}</h3>
-                <Tag>{item.details.category}</Tag>
-                <Tag>{item.details.system}</Tag>
-                <S.Prices>{formataPreco(item.prices.current)}</S.Prices>
+                <div>
+                  <Tag>{item.details.category}</Tag>
+                  <Tag>{item.details.system}</Tag>
+                </div>
+                <span>{formataPreco(item.prices.current)}</span>
               </div>
               <button
                 onClick={() => removeItem(item.id)}

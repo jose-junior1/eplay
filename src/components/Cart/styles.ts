@@ -3,6 +3,7 @@ import cores from '../../styles/colors'
 import { TagContainer } from '../Tag/styles'
 import { ButtonContainer } from '../Button/styles'
 import remove from '../../assets/images/fechar.png'
+import { breakpoints } from '../../styles/styles'
 
 export const Overlay = styled.div`
   height: 100%;
@@ -17,6 +18,15 @@ export const Overlay = styled.div`
   h2 {
     color: ${cores.branco};
     opacity: 1;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    h2 {
+      font-size: 18px;
+      text-align: center;
+      padding: 0 10px;
+      line-height: 32px;
+    }
   }
 `
 
@@ -39,18 +49,25 @@ export const CartContainer = styled.div`
     opacity: 1;
     pointer-events: auto;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr 70%;
+  }
 `
 
 export const Aside = styled.aside`
   z-index: 1;
   background-color: ${cores.cinza};
   padding: 40px 16px 0 16px;
-  width: 360px;
 
   ${ButtonContainer} {
     margin-top: 24px;
     max-width: 100%;
     width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 24px 8px;
   }
 `
 
@@ -97,6 +114,12 @@ export const Item = styled.li`
     margin: 8px 8px 16px 0;
   }
 
+  span {
+    font-weight: bold;
+    font-size: 14px;
+    color: ${cores.branco};
+  }
+
   button {
     position: absolute;
     top: 8px;
@@ -107,5 +130,32 @@ export const Item = styled.li`
     border: none;
     cursor: pointer;
     background-image: url(${remove});
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    gap: 8px;
+    max-width: 100%;
+
+    .container-items {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        ${TagContainer} {
+          padding: 2px 4px;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 `
