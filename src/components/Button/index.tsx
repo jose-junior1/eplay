@@ -17,23 +17,10 @@ const Button = ({
   children,
   $variant = 'primary'
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
       <S.ButtonContainer
-        type="button"
-        title={title}
-        onClick={onClick}
-        $variant={$variant}
-      >
-        {children}
-      </S.ButtonContainer>
-    )
-  }
-
-  if (type === 'submit') {
-    return (
-      <S.ButtonContainer
-        type="submit"
+        type={type}
         title={title}
         onClick={onClick}
         $variant={$variant}
