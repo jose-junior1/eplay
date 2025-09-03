@@ -1,10 +1,12 @@
 import { useState } from 'react'
 
+import Section from '../Section'
+
+import close from '../../assets/images/fechar.png'
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
-import close from '../../assets/images/fechar.png'
+
 import * as S from './styles'
-import Section from '../Section'
 
 interface GalleryItem {
   type: 'image' | 'video'
@@ -52,7 +54,7 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
 
   return (
     <>
-      <Section title="Galeria" background="black">
+      <Section title="Galeria" $background="black">
         <S.GalleryList>
           {items.map((media, index) => (
             <S.GalleryItem

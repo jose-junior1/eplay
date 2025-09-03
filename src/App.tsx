@@ -1,18 +1,15 @@
-import { useLocation } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import Header from './components/Header'
-import { GlobalStyles } from './styles/styles'
-import Rotas from './routes'
-import Footer from './components/Footer'
 import { store } from './store'
+
 import Cart from './components/Cart'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Rotas from './routes'
+
+import { GlobalStyles } from './styles/styles'
 
 function App() {
-  const location = useLocation()
-
-  const isHome = location.pathname === '/'
-
   return (
     <Provider store={store}>
       <GlobalStyles />
@@ -20,7 +17,7 @@ function App() {
         <Header />
       </div>
       <Rotas />
-      {isHome ? <Footer background="gray" /> : <Footer background="black" />}
+      <Footer $background="gray" />
       <Cart />
     </Provider>
   )

@@ -1,12 +1,12 @@
-import ProductsList from '../../components/ProductsList'
-
 import {
   useGetActionGamesQuery,
-  useGetSportGamesQuery,
-  useGetSimulationGamesQuery,
   useGetFightGamesQuery,
+  useGetSimulationGamesQuery,
+  useGetSportGamesQuery,
   useGetRpgGamesQuery
 } from '../../services/api'
+
+import ProductsList from '../../components/ProductsList'
 
 const Categories = () => {
   const { data: actionGames } = useGetActionGamesQuery()
@@ -22,32 +22,32 @@ const Categories = () => {
           id="action"
           games={actionGames}
           title="Ação"
-          background="gray"
+          $background="black"
         />
         <ProductsList
           id="sports"
           games={sportGames}
           title="Esportes"
-          background="black"
+          $background="gray"
         />
         <ProductsList
           id="fight"
           games={fightGames}
           title="Luta"
-          background="gray"
+          $background="black"
         />
         <ProductsList
           id="rpg
         "
           games={rpgGames}
           title="RPG"
-          background="black"
+          $background="gray"
         />
         <ProductsList
           id="simulation"
           games={simulationGames}
           title="Simulação"
-          background="gray"
+          $background="black"
         />
       </>
     )

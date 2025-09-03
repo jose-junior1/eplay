@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
+
+import { close, remove } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
+import { parseToBrl } from '../../utils'
+
 import Button from '../Button'
 import Tag from '../Tag'
 
 import * as S from './styles'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-import { formataPreco } from '../ProductsList'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -43,7 +45,7 @@ const Cart = () => {
                   <Tag>{item.details.category}</Tag>
                   <Tag>{item.details.system}</Tag>
                 </div>
-                <span>{formataPreco(item.prices.current)}</span>
+                <span>{parseToBrl(item.prices.current)}</span>
               </div>
               <button
                 onClick={() => removeItem(item.id)}
@@ -59,10 +61,16 @@ const Cart = () => {
           <S.Quantity>{items.length} jogo no carrinho</S.Quantity>
         )}
         <S.Prices>
-          Total de {formataPreco(getTotalPrice())}{' '}
+          Total de {parseToBrl(getTotalPrice())}{' '}
           <span>Em até 6x sem juros</span>
         </S.Prices>
-        <Button title="Clique aqui para continuar com a compra" type="button">
+        <Button
+          to="/checkout"
+          title="Clique aqui para continuar com a compra"
+          type="button"
+          $variant="primary"
+          onClick={closeCart}
+        >
           Continuar com a compra
         </Button>
       </S.Aside>

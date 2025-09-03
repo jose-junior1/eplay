@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { Props } from '.'
-import cores from '../../styles/colors'
+
+import colors from '../../styles/colors'
 
 export const ButtonContainer = styled.button<Props>`
   border: 2px solid;
-  color: ${cores.branco};
+  color: ${colors.white};
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
@@ -15,10 +16,10 @@ export const ButtonContainer = styled.button<Props>`
   transition: transform 0.2s ease-in-out;
 
   ${(props) =>
-    props.variant === 'primary' &&
+    props.$variant === 'primary' &&
     css`
-      border-color: ${cores.verde};
-      background-color: ${cores.verde};
+      border-color: ${colors.green};
+      background-color: ${colors.green};
 
       &:hover {
         background-color: transparent;
@@ -26,9 +27,9 @@ export const ButtonContainer = styled.button<Props>`
     `}
 
   ${(props) =>
-    props.variant === 'secondary' &&
+    props.$variant === 'secondary' &&
     css`
-      border-color: ${cores.branco};
+      border-color: ${colors.white};
       background-color: transparent;
     `}
 
@@ -38,8 +39,8 @@ export const ButtonContainer = styled.button<Props>`
 `
 
 export const ButtonLink = styled(Link)`
-  border: 2px solid ${cores.branco};
-  color: ${cores.branco};
+  border: 2px solid ${colors.white};
+  color: ${colors.white};
   background-color: transparent;
   border-radius: 8px;
   font-size: 16px;
@@ -51,7 +52,7 @@ export const ButtonLink = styled(Link)`
 
   &:hover {
     transform: translateZ(0) scale(1.05);
-    border-color: ${cores.azul};
-    color: ${cores.azulBebe};
+    border-color: ${colors.blue};
+    color: ${colors.lightBlue};
   }
 `

@@ -1,6 +1,7 @@
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
+
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
-import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -43,13 +44,13 @@ const Home = () => {
           id="on-sale"
           games={onSale}
           title="Promoções"
-          background="gray"
+          $background="gray"
         />
         <ProductsList
-          id="on-soon"
+          id="coming-soon"
           games={onSoon}
           title="Em breve"
-          background="black"
+          $background="black"
         />
       </>
     )

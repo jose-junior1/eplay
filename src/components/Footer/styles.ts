@@ -1,14 +1,16 @@
 import styled from 'styled-components'
-import cores from '../../styles/colors'
 import { HashLink } from 'react-router-hash-link'
 
+import colors from '../../styles/colors'
+
 type Props = {
-  background: 'black' | 'gray'
+  $background: 'black' | 'gray'
 }
 
 export const Container = styled.div<Props>`
   background-color: ${(props) =>
-    props.background === 'gray' ? `${cores.cinza}` : `${cores.preto}`};
+    props.$background === 'gray' ? `${colors.gray}` : `${colors.black}`};
+  margin-top: 40px;
   padding: 32px 0;
   font-size: 14px;
 `
@@ -29,10 +31,10 @@ export const Links = styled.ul`
 `
 
 export const LinkItem = styled(HashLink)`
-  color: ${cores.cinzaClaro};
+  color: ${colors.lightGray};
   text-decoration: none;
 
   &:hover {
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 `

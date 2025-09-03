@@ -1,14 +1,17 @@
 import styled from 'styled-components'
-import cores from '../../styles/colors'
-import { TagContainer } from '../Tag/styles'
-import { ButtonContainer } from '../Button/styles'
-import remove from '../../assets/images/fechar.png'
+
 import { breakpoints } from '../../styles/styles'
+import { ButtonContainer } from '../Button/styles'
+import { TagContainer } from '../Tag/styles'
+
+import remove from '../../assets/images/fechar.png'
+
+import colors from '../../styles/colors'
 
 export const Overlay = styled.div`
   height: 100%;
   width: 100%;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   opacity: 0.75;
   display: flex;
   justify-content: center;
@@ -16,7 +19,7 @@ export const Overlay = styled.div`
   cursor: pointer;
 
   h2 {
-    color: ${cores.branco};
+    color: ${colors.white};
     opacity: 1;
   }
 
@@ -57,7 +60,7 @@ export const CartContainer = styled.div`
 
 export const Aside = styled.aside`
   z-index: 1;
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   padding: 40px 16px 0 16px;
 
   ${ButtonContainer} {
@@ -74,19 +77,19 @@ export const Aside = styled.aside`
 export const Prices = styled.p`
   font-weight: bold;
   font-size: 14px;
-  color: ${cores.branco};
+  color: ${colors.white};
 
   span {
     display: block;
     font-size: 12px;
-    color: ${cores.cinzaClaro};
+    color: ${colors.lightGray};
   }
 `
 
 export const Quantity = styled.p`
   font-weight: bold;
   font-size: 1em;
-  color: ${cores.branco};
+  color: ${colors.white};
   margin-top: 32px;
   margin-bottom: 16px;
 `
@@ -96,7 +99,7 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   gap: 24px;
-  border-bottom: 1px solid ${cores.cinzaMedio};
+  border-bottom: 1px solid ${colors.mediumGray};
   padding: 8px 0;
 
   img {
@@ -107,7 +110,7 @@ export const Item = styled.li`
 
   h3 {
     font-size: 1em;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   ${TagContainer} {
@@ -117,7 +120,7 @@ export const Item = styled.li`
   span {
     font-weight: bold;
     font-size: 14px;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   button {

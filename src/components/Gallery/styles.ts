@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import cores from '../../styles/colors'
+
+import colors from '../../styles/colors'
 
 export const GalleryList = styled.ul`
   display: flex;
@@ -18,7 +19,7 @@ export const Action = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.73);
-  cursor: pointer;
+  cursor: zoom-in;
   opacity: 0;
   transition: opacity 0.5s ease;
 
@@ -34,7 +35,7 @@ export const GalleryItem = styled.li`
   > img {
     height: 150px;
     width: 150px;
-    border: 2px solid ${cores.branco};
+    border: 2px solid ${colors.white};
     border-radius: 8px;
     object-fit: cover;
   }

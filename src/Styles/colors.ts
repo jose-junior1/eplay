@@ -1,12 +1,12 @@
-const cores = {
-  branco: '#eee',
-  preto: '#111',
-  cinza: '#333',
-  cinzaMedio: '#686868',
-  cinzaClaro: '#A3A3A3',
-  verde: '#10ac84',
-  azul: '#0095ff',
-  azulBebe: '#5bacfc'
+const colors = {
+  white: '#eee',
+  black: '#111',
+  gray: '#333',
+  mediumGray: '#686868',
+  lightGray: '#A3A3A3',
+  green: '#10ac84',
+  blue: '#0095ff',
+  lightBlue: '#5bacfc'
 }
 
-export default cores
+export default colors

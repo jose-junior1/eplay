@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import cores from '../../styles/colors'
 import { breakpoints } from '../../styles/styles'
+
+import colors from '../../styles/colors'
 
 export const Banner = styled.div`
   position: relative;
@@ -16,7 +17,7 @@ export const Banner = styled.div`
   &::after {
     position: absolute;
     content: '';
-    background-color: ${cores.preto};
+    background-color: ${colors.black};
     width: 100%;
     height: 100%;
     top: 0;
@@ -48,7 +49,7 @@ export const ContainerPreco = styled.div`
   max-width: 283px;
   width: 100%;
   padding: 16px;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   font-weight: bold;
 
   h2 {
@@ -65,11 +66,3 @@ export const ContainerPreco = styled.div`
     }
   }
 `
-// export const BtnAddCart = styled.button`
-//   background-color: ${cores.verde};
-//   color: ${cores.branco};
-//   padding: 8px 16px;
-//   border-radius: 8px;
-//   font-size: 1em;
-//   cursor: pointer;
-// `

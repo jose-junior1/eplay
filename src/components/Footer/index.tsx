@@ -1,48 +1,83 @@
-import { Container, Title, Links, FooterSection, LinkItem } from './styles'
+import * as S from './styles'
 
 const currentYear = new Date().getFullYear()
 
 type Props = {
-  background: 'black' | 'gray'
+  $background: 'black' | 'gray'
 }
 
-const Footer = ({ background }: Props) => (
-  <Container background={background}>
+const Footer = ({ $background }: Props) => (
+  <S.Container $background={$background}>
     <div className="container">
-      <FooterSection>
-        <Title>Categorias</Title>
-        <Links>
+      <S.FooterSection>
+        <S.Title>Categorias</S.Title>
+        <S.Links>
           <li>
-            <LinkItem to="/categories#action">Ação</LinkItem>
+            <S.LinkItem
+              to="/categories#action"
+              title="Clique aqui para acessar jogos de Ação"
+            >
+              Ação
+            </S.LinkItem>
           </li>
           <li>
-            <LinkItem to="/categories#sports">Esportes</LinkItem>
+            <S.LinkItem
+              to="/categories#sports"
+              title="Clique aqui para acessar jogos de Esportes"
+            >
+              Esportes
+            </S.LinkItem>
           </li>
           <li>
-            <LinkItem to="/categories#fight">Luta</LinkItem>
+            <S.LinkItem
+              to="/categories#fight"
+              title="Clique aqui para acessar jogos de Luta"
+            >
+              Luta
+            </S.LinkItem>
           </li>
           <li>
-            <LinkItem to="/categories#rpg">RPG</LinkItem>
+            <S.LinkItem
+              to="/categories#rpg"
+              title="Clique aqui para acessar jogos de RPG"
+            >
+              RPG
+            </S.LinkItem>
           </li>
           <li>
-            <LinkItem to="/categories#simulation">Simulação</LinkItem>
+            <S.LinkItem
+              to="/categories#simulation"
+              title="Clique aqui para acessar jogos de Simulação"
+            >
+              Simulação
+            </S.LinkItem>
           </li>
-        </Links>
-      </FooterSection>
-      <FooterSection>
-        <Title>Acesso rápido</Title>
-        <Links>
+        </S.Links>
+      </S.FooterSection>
+      <S.FooterSection>
+        <S.Title>Acesso rápido</S.Title>
+        <S.Links>
           <li>
-            <LinkItem to="/#on-sale">Promoções</LinkItem>
+            <S.LinkItem
+              to="/#on-sale"
+              title="Clique aqui para acessar a seção de promoções"
+            >
+              Promoções
+            </S.LinkItem>
           </li>
           <li>
-            <LinkItem to="/#on-soon">Em breve</LinkItem>
+            <S.LinkItem
+              to="/#coming-soon"
+              title="Clique aqui para acessar a seção de em breve"
+            >
+              Em breve
+            </S.LinkItem>
           </li>
-        </Links>
-      </FooterSection>
+        </S.Links>
+      </S.FooterSection>
       <p>{currentYear} - &copy; E-PLAY Todos os direitos reservados</p>
     </div>
-  </Container>
+  </S.Container>
 )
 
 export default Footer

@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import cores from './colors'
+
+import colors from './colors'
 
 export const breakpoints = {
   desktop: '1024px',
@@ -16,8 +17,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.preto};
-    color: ${cores.branco};
+    background-color: ${colors.black};
+    color: ${colors.white};
     padding-top: 40px;
   }
 

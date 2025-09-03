@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom'
-import Hero from '../../components/Hero'
-import Section from '../../components/Section'
+
+import { useGetGameQuery } from '../../services/api'
 
 import Gallery from '../../components/Gallery'
-import { useGetGameQuery } from '../../services/api'
+import Hero from '../../components/Hero'
+import Section from '../../components/Section'
 
 const Product = () => {
   const { id } = useParams()
@@ -17,10 +18,10 @@ const Product = () => {
   return (
     <>
       <Hero game={game} />
-      <Section title="Sobre o jogo" background="black">
+      <Section title="Sobre o jogo" $background="black">
         <p>{game.description}</p>
       </Section>
-      <Section title="Mais detalhes" background="gray">
+      <Section title="Mais detalhes" $background="gray">
         <p>
           <b>Plataforma: </b>
           {game.details.system}
