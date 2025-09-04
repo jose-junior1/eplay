@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
+import { IMaskInput } from 'react-imask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
@@ -235,11 +236,13 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('email') ? 'error' : ''}
+                    inputMode="email"
                   />
                 </S.InputGroup>
                 <S.InputGroup>
                   <label htmlFor="cpf">CPF</label>
-                  <input
+                  <IMaskInput
+                    mask="000.000.000-00"
                     id="cpf"
                     type="text"
                     name="cpf"
@@ -247,6 +250,7 @@ const Checkout = () => {
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
                     className={checkInputHasError('cpf') ? 'error' : ''}
+                    inputMode="numeric"
                   />
                 </S.InputGroup>
               </S.Row>
@@ -266,6 +270,7 @@ const Checkout = () => {
                     className={
                       checkInputHasError('deliveryEmail') ? 'error' : ''
                     }
+                    inputMode="email"
                   />
                 </S.InputGroup>
                 <S.InputGroup>
@@ -280,6 +285,7 @@ const Checkout = () => {
                     className={
                       checkInputHasError('confirmEmail') ? 'error' : ''
                     }
+                    inputMode="email"
                   />
                 </S.InputGroup>
               </S.Row>
@@ -329,7 +335,8 @@ const Checkout = () => {
                         <label htmlFor="cpfCardOwner">
                           CPF do titular do cartão
                         </label>
-                        <input
+                        <IMaskInput
+                          mask="000.000.000-00"
                           id="cpfCardOwner"
                           type="text"
                           name="cpfCardOwner"
@@ -339,6 +346,7 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cpfCardOwner') ? 'error' : ''
                           }
+                          inputMode="numeric"
                         />
                       </S.InputGroup>
                     </S.Row>
@@ -359,7 +367,8 @@ const Checkout = () => {
                       </S.InputGroup>
                       <S.InputGroup>
                         <label htmlFor="cardNumber">Número do cartão</label>
-                        <input
+                        <IMaskInput
+                          mask="0000 0000 0000 0000"
                           id="cardNumber"
                           type="text"
                           name="cardNumber"
@@ -369,13 +378,18 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cardNumber') ? 'error' : ''
                           }
+                          inputMode="numeric"
                         />
                       </S.InputGroup>
-                      <S.InputGroup $maxWidth="123px">
+                      <S.InputGroup
+                        $maxWidth="123px"
+                        className="expirationGroup"
+                      >
                         <label htmlFor="expirationMonth">
                           Mês de expiração
                         </label>
-                        <input
+                        <IMaskInput
+                          mask="00"
                           id="expirationMonth"
                           type="text"
                           name="expirationMonth"
@@ -385,11 +399,16 @@ const Checkout = () => {
                           className={
                             checkInputHasError('expirationMonth') ? 'error' : ''
                           }
+                          inputMode="numeric"
                         />
                       </S.InputGroup>
-                      <S.InputGroup $maxWidth="123px">
+                      <S.InputGroup
+                        $maxWidth="123px"
+                        className="expirationGroup"
+                      >
                         <label htmlFor="expirationYear">Ano de expiração</label>
-                        <input
+                        <IMaskInput
+                          mask="0000"
                           id="expirationYear"
                           type="text"
                           name="expirationYear"
@@ -399,11 +418,13 @@ const Checkout = () => {
                           className={
                             checkInputHasError('expirationYear') ? 'error' : ''
                           }
+                          inputMode="numeric"
                         />
                       </S.InputGroup>
-                      <S.InputGroup $maxWidth="48px">
+                      <S.InputGroup $maxWidth="48px" className="cvvGroup">
                         <label htmlFor="cardCvv">CVV</label>
-                        <input
+                        <IMaskInput
+                          mask="0000"
                           id="cardCvv"
                           type="text"
                           name="cardCvv"
@@ -413,11 +434,15 @@ const Checkout = () => {
                           className={
                             checkInputHasError('cardCvv') ? 'error' : ''
                           }
+                          inputMode="numeric"
                         />
                       </S.InputGroup>
                     </S.Row>
                     <S.Row $marginTop="24px">
-                      <S.InputGroup $maxWidth="150px">
+                      <S.InputGroup
+                        $maxWidth="150px"
+                        className="installmentGroup"
+                      >
                         <label htmlFor="installments">Parcelamento</label>
                         <select
                           id="installments"
