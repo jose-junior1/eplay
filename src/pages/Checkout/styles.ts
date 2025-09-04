@@ -47,6 +47,10 @@ export const InputGroup = styled.div<InputGroupProps>`
     font-size: 14px;
   }
 
+  select {
+    cursor: pointer;
+  }
+
   input,
   select {
     height: 32px;

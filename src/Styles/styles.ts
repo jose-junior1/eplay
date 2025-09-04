@@ -31,9 +31,4 @@ export const GlobalStyles = createGlobalStyle`
       max-width: 80%;
     }
   }
-
-  .status-fetch {
-    text-align: center;
-    margin-bottom: 16px;
-  }
 `

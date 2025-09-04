@@ -64,8 +64,8 @@ export const Container = styled.div`
     }
 
     img {
-      display: block;
-      max-width: 100%;
+      width: 16px;
+      height: 16px;
       cursor: pointer;
     }
   }
