@@ -24,9 +24,7 @@ export const Row = styled.div<RowProps>`
   margin-top: ${(props) => props.$marginTop || '0'};
 
   @media (max-width: ${breakpoints.tablet}) {
-    flex-direction: column;
-    width: 100%;
-    gap: 30px;
+    display: block;
 
     .expirationGroup,
     .cvvGroup,
@@ -70,13 +68,18 @@ export const InputGroup = styled.div<InputGroupProps>`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
-    width: 100%;
+    margin-top: 16px;
   }
 `
 
 export const SelectPaymentMethod = styled.div`
   display: flex;
   gap: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    gap: 8px;
+  }
 `
 
 export const TabButton = styled.button<TabButtonProps>`

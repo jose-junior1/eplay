@@ -33,6 +33,10 @@ export const HeaderBar = styled.header`
       color: ${colors.blue};
     }
   }
+
+  h1 {
+    line-height: 0;
+  }
 `
 
 export const HeaderRow = styled.div`
@@ -73,11 +77,12 @@ export const LinkItem = styled.li`
   }
 `
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   display: flex;
   align-items: center;
   gap: 16px;
   cursor: pointer;
+  font-weight: bold;
 
   @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;

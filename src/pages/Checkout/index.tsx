@@ -1,12 +1,13 @@
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { IMaskInput } from 'react-imask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
+import { clear } from '../../store/reducers/cart'
 import { getTotalPrice, parseToBrl } from '../../utils'
 
 import Button from '../../components/Button'
@@ -25,9 +26,11 @@ type Installment = {
 
 const Checkout = () => {
   const [payWithCard, setPayWithCard] = useState(false)
-  const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
   const [installments, setInstallments] = useState<Installment[]>([])
+
+  const dispatch = useDispatch()
 
   const totalPrice = getTotalPrice(items)
 
@@ -91,7 +94,7 @@ const Checkout = () => {
       cardCvv: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
-      installments: Yup.string().when((values, schema) =>
+      installments: Yup.number().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       )
     }),
@@ -106,7 +109,7 @@ const Checkout = () => {
           email: values.deliveryEmail
         },
         payment: {
-          installments: 1,
+          installments: values.installments,
           card: {
             active: payWithCard,
             code: Number(values.cardCvv),
@@ -122,12 +125,10 @@ const Checkout = () => {
             }
           }
         },
-        products: [
-          {
-            id: 1,
-            price: 10
-          }
-        ]
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.prices.current as number
+        }))
       })
     }
   })
@@ -168,13 +169,19 @@ const Checkout = () => {
     }
   }, [totalPrice])
 
-  if (items.length === 0) {
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
+
+  if (items.length === 0 && !isSuccess) {
     return <Navigate to="/" />
   }
 
   return (
     <div className="container">
-      {isSuccess ? (
+      {isSuccess && data ? (
         <Card title="Muito obrigado">
           <div>
             <p>
@@ -424,7 +431,7 @@ const Checkout = () => {
                       <S.InputGroup $maxWidth="48px" className="cvvGroup">
                         <label htmlFor="cardCvv">CVV</label>
                         <IMaskInput
-                          mask="0000"
+                          mask="000"
                           id="cardCvv"
                           type="text"
                           name="cardCvv"
@@ -455,7 +462,10 @@ const Checkout = () => {
                           }
                         >
                           {installments.map((installment) => (
-                            <option key={installment.quantity}>
+                            <option
+                              value={installment.quantity}
+                              key={installment.quantity}
+                            >
                               {installment.quantity}x de{' '}
                               {installment.formattedCost}
                             </option>
@@ -477,8 +487,12 @@ const Checkout = () => {
               </div>
             </div>
           </Card>
-          <Button type="submit" title="Clique aqui para finalizar a compra">
-            Finalizar compra
+          <Button
+            type="submit"
+            title="Clique aqui para finalizar a compra"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Finalizando compra...' : 'Finalizar compra'}
           </Button>
         </form>
       )}

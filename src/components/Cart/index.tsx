@@ -35,44 +35,53 @@ const Cart = () => {
         <h2>Clique em qualquer lugar para fechar</h2>
       </S.Overlay>
       <S.Aside>
-        <ul>
-          {items.map((item) => (
-            <S.Item key={item.id}>
-              <img src={item.media.thumbnail} alt={item.name} />
-              <div className="container-items">
-                <h3>{item.name}</h3>
-                <div>
-                  <Tag>{item.details.category}</Tag>
-                  <Tag>{item.details.system}</Tag>
-                </div>
-                <span>{parseToBrl(item.prices.current)}</span>
-              </div>
-              <button
-                onClick={() => removeItem(item.id)}
-                type="button"
-                title="Remover"
-              />
-            </S.Item>
-          ))}
-        </ul>
-        {items.length === 0 || items.length > 1 ? (
-          <S.Quantity>{items.length} jogos no carrinho</S.Quantity>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.Item key={item.id}>
+                  <img src={item.media.thumbnail} alt={item.name} />
+                  <div className="container-items">
+                    <h3>{item.name}</h3>
+                    <div>
+                      <Tag>{item.details.category}</Tag>
+                      <Tag>{item.details.system}</Tag>
+                    </div>
+                    <span>{parseToBrl(item.prices.current)}</span>
+                  </div>
+                  <button
+                    onClick={() => removeItem(item.id)}
+                    type="button"
+                    title="Remover"
+                  />
+                </S.Item>
+              ))}
+            </ul>
+            {items.length === 0 || items.length > 1 ? (
+              <S.Quantity>{items.length} jogos no carrinho</S.Quantity>
+            ) : (
+              <S.Quantity>{items.length} jogo no carrinho</S.Quantity>
+            )}
+            <S.Prices>
+              Total de {parseToBrl(getTotalPrice(items))}{' '}
+              <span>Em até 6x sem juros</span>
+            </S.Prices>
+            <Button
+              to="/checkout"
+              title="Clique aqui para continuar com a compra"
+              type="button"
+              $variant="primary"
+              onClick={goToCheckout}
+            >
+              Continuar com a compra
+            </Button>
+          </>
         ) : (
-          <S.Quantity>{items.length} jogo no carrinho</S.Quantity>
+          <p className="empty-cart-message">
+            O carrinho está vazio, adicione pelo menos um produto para continuar
+            com a compra
+          </p>
         )}
-        <S.Prices>
-          Total de {parseToBrl(getTotalPrice(items))}{' '}
-          <span>Em até 6x sem juros</span>
-        </S.Prices>
-        <Button
-          to="/checkout"
-          title="Clique aqui para continuar com a compra"
-          type="button"
-          $variant="primary"
-          onClick={goToCheckout}
-        >
-          Continuar com a compra
-        </Button>
       </S.Aside>
     </S.CartContainer>
   )

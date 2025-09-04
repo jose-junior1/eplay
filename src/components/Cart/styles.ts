@@ -69,6 +69,13 @@ export const Aside = styled.aside`
     width: 100%;
   }
 
+  .empty-cart-message {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.white};
+    text-align: center;
+  }
+
   @media (max-width: ${breakpoints.tablet}) {
     padding: 24px 8px;
   }
