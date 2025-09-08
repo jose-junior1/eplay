@@ -1,8 +1,8 @@
 # 🎮 EPLAY - A sua loja de games
 
-Este repositório contém o código-fonte do meu projeto feito no curso da EBAC, desenvolvido com **React**, **TypeScript**, **styled-components**, entre outras ferramentas. O objetivo é representar o fluxo de um e-commerce, onde o usuário visualiza os jogos disponíveis, acessam suas respectivas páginas contendo seus detalhes e os adicionam no carrinho.
+Este repositório contém o código-fonte do meu projeto feito no curso da **EBAC**, desenvolvido com **React**, **TypeScript**, **styled-components**, entre outras ferramentas. O objetivo é representar o fluxo de um e-commerce, onde o usuário visualiza os jogos disponíveis, acessam suas respectivas páginas contendo seus detalhes e os adicionam no carrinho.
 
-Para demonstar o fluxo tempos a seção de checkout, onde o usuário digita os dados de cobrança, a forma de pagamento, e, se estiver tudo ok finaliza o pedido com um orderId único.
+Para demonstrar o fluxo temos a seção de checkout, onde o usuário digita os dados de cobrança, a forma de pagamento, e, se estiver tudo ok finaliza o pedido com um orderId único.
 
 🔗 [Acesse o e-commerce online](https://eplaygames.vercel.app/)
 
@@ -16,7 +16,7 @@ Para demonstar o fluxo tempos a seção de checkout, onde o usuário digita os d
 - Página de checkout para pagamento e confirmação de pedido.
 - Layout **responsivo** para desktop e mobile.
 - Estilização com **styled-components**.
-- Integração com api extena.
+- Integração com API extena.
 - Código limpo, modularizado e reutilizável.
 
 ---
@@ -71,8 +71,8 @@ efood/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/jose-junior1/efood
-cd efood
+git clone https://github.com/jose-junior1/eplay
+cd eplay
 ```
 2. Instale as dependências:
 
