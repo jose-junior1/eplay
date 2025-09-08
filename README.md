@@ -4,7 +4,7 @@ Este repositório contém o código-fonte do meu projeto feito no curso da EBAC,
 
 Para demonstar o fluxo tempos a seção de checkout, onde o usuário digita os dados de cobrança, a forma de pagamento, e, se estiver tudo ok finaliza o pedido com um orderId único.
 
-🔗 [Acesse o e-commerce online]()
+🔗 [Acesse o e-commerce online](https://eplaygames.vercel.app/)
 
 ---
 
@@ -99,7 +99,7 @@ cd efood
 ## 🚀 Deploy
 Este projeto está hospedado gratuitamente via Vercel:
 
-🌍 
+🌍 https://eplaygames.vercel.app/
 
 ---
 
