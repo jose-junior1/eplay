@@ -16,7 +16,7 @@ Para demonstrar o fluxo temos a seção de checkout, onde o usuário digita os d
 - Página de checkout para pagamento e confirmação de pedido.
 - Layout **responsivo** para desktop e mobile.
 - Estilização com **styled-components**.
-- Integração com API extena.
+- Integração com API externa.
 - Código limpo, modularizado e reutilizável.
 
 ---
@@ -44,24 +44,25 @@ efood/
 │   ├── assets/              # Logos, imagens e arquivo de definição de tipos de imagem
 │   ├── components/          # Componentes reutilizáveis
 │   ├── pages/               # Páginas Home e Restaurant
-|   ├── services/            # Requisição da API com RTK Query
-|   ├── store/               # Store contendo os reducers e middlewares
-|       ├── reducers/        # Reducer do carrinho (adicionar, remover, limpar fluxo, etc.)
+│   ├── services/            # Requisição da API com RTK Query
+│   ├── store/               # Store contendo os reducers e middlewares
+│   │    └── reducers/        # Reducer do carrinho (adicionar, remover, limpar fluxo, etc.)
 │   ├── styles/              # Estilos globais e arquivo de cores
-|   ├── utils/               # Função de conversão de moeda para BRL e função para pegar o valor total do carrinho
-│   ├── App.tsx              # Definição do app
-│   └── index.tsx            # Ponto de entrada do app
-|   └── routes.tsx           # Rotas do React Router
-|   └── types.d.ts           # Arquivos de declaração de tipos
+│   ├── utils/               # Função de conversão de moeda para BRL e função para pegar o valor total do carrinho
+│   │── App.tsx              # Definição do app
+│   │── index.tsx            # Ponto de entrada do app
+│   │── routes.tsx           # Rotas do React Router
+│   └── types.d.ts           # Arquivos de declaração de tipos
 ├── .editorconfig
-└── .eslintrc.json
-└── .gitignore
-└── .hintrc
-└── .prettierrc
-└── package-lock.json
-└── package.json
-└── README.md
+├── .eslintrc.json
+├── .gitignore
+├── .hintrc
+├── .prettierrc
+├── package-lock.json
+├── package.json
+├── README.md
 └── tsconfig.json
+
 ```
 
 ---
